@@ -28,6 +28,7 @@
     height: 20rem;
     width: 15rem;
     border-radius: 5px;
+    box-shadow: 6px 6px 15px #636363;
 }
 .aboutContent li{
     list-style: none;
@@ -35,6 +36,7 @@
 }
 .aboutContent i{
     font-size: 3rem;
+    text-shadow:2px 2px 2px #636363;
 }
 .socialNetwork a{
     margin: 1rem;
@@ -52,7 +54,23 @@ a:hover{
 .languageCard{
     width: 25%;
     text-align: center;
+    
 }
 .languageCard img{
     width: 60%;
+}
+.hobbies{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.hobbieCard{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.5rem;
+    box-shadow: 6px 6px 15px #636363;
+    border-radius: 5px;
 }
