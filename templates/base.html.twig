@@ -6,6 +6,15 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <header>
+            <h1><span>A</span>dorais<span>K</span>évin<span>.best</span></h1>
+            <nav>
+                <a href="#">Mes Services</a>
+                <a href="{{ path('about_index') }}">Ma Présentation</a>
+                <a href="#">Mon Parcour</a>
+                <a href="#">Mes Compétences</a>
+            </nav>
+        </header>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
     </body>

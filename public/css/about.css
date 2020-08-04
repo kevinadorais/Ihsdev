@@ -1,0 +1,58 @@
+.container{
+    background-image: url("../img/headerBackground.jpg");
+    background-size: cover;
+    height: 30rem;
+    color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.container h2{
+    font-size: 1.6rem;
+    text-align: center;
+}
+.container p{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+.aboutContent{
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.aboutContent img{
+    float: left;
+    margin-left: 5%;
+    height: 20rem;
+    width: 15rem;
+    border-radius: 5px;
+}
+.aboutContent li{
+    list-style: none;
+    margin-top: 1rem;
+}
+.aboutContent i{
+    font-size: 3rem;
+}
+.socialNetwork a{
+    margin: 1rem;
+    color: rgb(0, 105, 240);
+}
+a:hover{
+    color: rgb(255, 103, 1);
+}
+.languages{
+    display: flex;
+    justify-content: space-around;
+    width: 80%;
+    margin: auto;
+}
+.languageCard{
+    width: 25%;
+    text-align: center;
+}
+.languageCard img{
+    width: 60%;
+}
