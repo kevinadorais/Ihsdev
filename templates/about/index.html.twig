@@ -16,7 +16,7 @@
         {% for text in aboutTexts %}
             <p>{{text.text}}</p>
         {% endfor %}
-        <a href="{{asset('img/file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
+        <a href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
     <section>
         <h2>1. Mes Informations</h2>
@@ -46,23 +46,23 @@
             <div class="languageCard">
                 <img src="{{ asset(lang.imgLink) }}">
                 <p>{{ lang.level }}</p>
+                <a href="{{ path('lang_edit', {'id': lang.id}) }}">Modifier</a>
             </div>
             {% endfor %}
         </div>
     </section>
 
     <section>
-        <h2>3. Mes Hobbies</h2>
+        <h2>3. Mes Loisirs</h2>
         <div class="hobbies">
-            {% for lang in languages %}
+            {% for hob in hobbies %}
             <div class="hobbieCard">
-                <p>Element <a href="#">X</a></p>
+                <p>{{ hob.name }} <a href="{{path('hobbie_delete',{'id':hob.id})}}">X</a></p>
             </div>
             {% endfor %}
         </div>
     </section>
 
-    <a href="{{ path('about_new') }}">Create new</a>
-    <a href="{{ path('aboutText_new') }}">Create new text</a>
-    <a href="{{ path('lang_new') }}">Create new languages</a>
+    <a href="{{ path('aboutText_new') }}">Ajouter Texte</a>
+    <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a>
 {% endblock %}

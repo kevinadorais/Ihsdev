@@ -5,9 +5,11 @@ namespace App\Controller;
 use App\Entity\About;
 use App\Entity\AboutText;
 use App\Entity\Languages;
+use App\Entity\Hobbies;
 use App\Form\AboutType;
 use App\Form\AboutTextType;
 use App\Form\LanguagesType;
+use App\Form\HobbiesType;
 use App\Repository\AboutRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,6 +30,7 @@ class AboutController extends AbstractController
         $em = $this->getDoctrine()->getManager(); 
         $aboutTexts = $em->getRepository(AboutText::class)->findAll();
         $languages = $em->getRepository(Languages::class)->findAll();
+        $hobbies = $em->getRepository(Hobbies::class)->findAll();
 
         # Calcule de l'âge automatiquement et stockage dans une variable.
         $datetime1 = new \DateTime('now');
@@ -39,29 +42,7 @@ class AboutController extends AbstractController
             'aboutTexts' => $aboutTexts ,
             'age' => $age ,
             'languages' => $languages ,
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="about_new", methods={"GET","POST"})
-     */
-    public function aboutNew(Request $request): Response
-    {
-        $about = new About();
-        $form = $this->createForm(AboutType::class, $about);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($about);
-            $entityManager->flush();
-
-            return $this->redirectToRoute('about_index');
-        }
-
-        return $this->render('about/new.html.twig', [
-            'about' => $about,
-            'form' => $form->createView(),
+            'hobbies' => $hobbies ,
         ]);
     }
 
@@ -83,20 +64,6 @@ class AboutController extends AbstractController
             'about' => $about,
             'form' => $form->createView(),
         ]);
-    }
-
-    /**
-     * @Route("/{id}", name="about_delete", methods={"DELETE"})
-     */
-    public function aboutDelete(Request $request, About $about): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$about->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($about);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('about_index');
     }
 
     /**
@@ -123,25 +90,97 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/lang/new", name="lang_new", methods={"GET","POST"})
+     * @Route("/text/{id}/edit", name="aboutText_edit", methods={"GET","POST"})
      */
-    public function languageNew(Request $request): Response
+    public function textEdit(Request $request, AboutText $aboutText): Response
     {
-        $languages = new Languages();
+        $form = $this->createForm(AboutTextType::class, $aboutText);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('about_index');
+        }
+
+        return $this->render('aboutText/edit.html.twig', [
+            'aboutText' => $aboutText,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/text/{textId}", name="text_delete")
+     */
+    public function textDelete($textId)
+    {          
+        # Ouverture de la database et récupération des données.
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository(AboutText::class)->find($textId);
+
+        # Supression des données.
+        $em->remove($task);
+        $em->flush();
+
+        return $this->redirectToRoute('about_index');
+    }
+
+    /**
+     * @Route("/lang/{id}/edit", name="lang_edit", methods={"GET","POST"})
+     */
+    public function langEdit(Request $request, Languages $languages): Response
+    {
         $form = $this->createForm(LanguagesType::class, $languages);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('about_index');
+        }
+
+        return $this->render('languages/edit.html.twig', [
+            'languages' => $languages,
+            'form' => $form->createView(),
+        ]);
+    }
+
+     /**
+     * @Route("/hobbie/new", name="hobbie_new", methods={"GET","POST"})
+     */
+    public function hobbieNew(Request $request): Response
+    {
+        $hobbies = new Hobbies();
+        $form = $this->createForm(HobbiesType::class, $hobbies);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($languages);
+            $entityManager->persist($hobbies);
             $entityManager->flush();
 
             return $this->redirectToRoute('about_index');
         }
 
-        return $this->render('languages/new.html.twig', [
-            'languages' => $languages,
+        return $this->render('hobbies/new.html.twig', [
+            'hobbies' => $hobbies,
             'form' => $form->createView(),
         ]);
+    }
+
+    /**
+     * @Route("/hobbie/{id}", name="hobbie_delete")
+     */
+    public function hobbieDelete($id)
+    {          
+        # Ouverture de la database et récupération des données.
+        $em = $this->getDoctrine()->getManager();
+        $task = $em->getRepository(hobbies::class)->find($id);
+
+        # Supression des données.
+        $em->remove($task);
+        $em->flush();
+
+        return $this->redirectToRoute('about_index');
     }
 }

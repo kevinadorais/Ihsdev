@@ -28,6 +28,33 @@ nav a:hover{
     color: rgb(0, 105, 240);
     border: 0.5px solid rgb(0, 105, 240);
 }
+section{
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
+section h2, h3{
+    text-align: center;
+    margin: 2rem;
+}
+.container{
+    background-image: url("../img/headerBackground.jpg");
+    background-size: cover;
+    height: 32rem;
+    color: whitesmoke;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+.container h2{
+    font-size: 1.6rem;
+    text-align: center;
+}
+.container p{
+    text-align: center;
+    font-size: 1.2rem;
+    margin-left: 5rem;
+    margin-right: 5rem;
+}
 .container a{
     display: inline-block;
     margin: auto;
@@ -43,11 +70,12 @@ nav a:hover{
     color: rgb(0, 105, 240);
     border: 0.5px solid rgb(0, 105, 240);
 }
-section{
-    margin-left: 5rem;
-    margin-right: 5rem;
-}
-section h2, h3{
-    text-align: center;
-    margin: 2rem;
+.form{
+    border: 1px solid gray;
+    border-radius: 15px;
+    padding: 3rem;
+    width: 70%;
+    margin: auto;
+    margin-top: 3rem;
+    box-shadow: 6px 6px 15px #636363;
 }

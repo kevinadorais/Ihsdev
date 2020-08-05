@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Modifier Infos{% endblock %}
+{% block title %}AdoraisKevin.best Modifier Langue{% endblock %}
 
 {% block stylesheets %}
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -11,13 +11,11 @@
 {% endblock %}
 
 {% block body %}
-
     <div class="form">
-        <h1>Modifier Infos</h1>
+        <h1>Modifier Langue</h1>
 
-        {{ include('about/_form.html.twig', {'button_label': 'Enregistrer'}) }}
+        {{ include('languages/_form.html.twig', {'button_label': 'Enregistrer'}) }}
 
         <a href="{{ path('about_index') }}">Retour en arrière</a>
     </div>
-    
 {% endblock %}
