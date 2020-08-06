@@ -12,6 +12,10 @@ h1{
 span{
     color: rgb(0, 105, 240);
 }
+a{
+    text-decoration: none;
+    color: rgb(0, 105, 240);
+}
 nav{
     margin-top: 2rem;
 }
@@ -39,7 +43,7 @@ section h2, h3{
 .container{
     background-image: url("../img/headerBackground.jpg");
     background-size: cover;
-    height: 32rem;
+    padding: 2rem;
     color: whitesmoke;
     border-radius: 5px;
     display: flex;
@@ -55,7 +59,7 @@ section h2, h3{
     margin-left: 5rem;
     margin-right: 5rem;
 }
-.container a{
+.button{
     display: inline-block;
     margin: auto;
     text-decoration: none;
@@ -65,7 +69,7 @@ section h2, h3{
     color: whitesmoke;
     box-shadow: 6px 6px 15px #636363;
 }
-.container a:hover{
+.button:hover{
     background-color: whitesmoke;
     color: rgb(0, 105, 240);
     border: 0.5px solid rgb(0, 105, 240);

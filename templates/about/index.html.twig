@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/about.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/about_responsive.css')}}">
 {% endblock %}
 
 
@@ -14,9 +15,9 @@
     <div class="container">
         <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
         {% for text in aboutTexts %}
-            <p>{{text.text}}</p>
+            <p>{{text.text}} <a href="{{ path('text_edit', {'id': text.id}) }}">M</a> <a href="{{ path('text_delete', {'id': text.id}) }}">X</a></p>
         {% endfor %}
-        <a href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
+        <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
     <section>
         <h2>1. Mes Informations</h2>
@@ -63,6 +64,6 @@
         </div>
     </section>
 
-    <a href="{{ path('aboutText_new') }}">Ajouter Texte</a>
+    <a href="{{ path('text_new') }}">Ajouter Texte</a>
     <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a>
 {% endblock %}

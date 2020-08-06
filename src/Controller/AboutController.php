@@ -11,6 +11,8 @@ use App\Form\AboutTextType;
 use App\Form\LanguagesType;
 use App\Form\HobbiesType;
 use App\Repository\AboutRepository;
+use App\Repository\AboutTextRepository;
+use App\Repository\HobbiesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -28,9 +30,9 @@ class AboutController extends AbstractController
     {
         # Ouverture de la base de données, récuperation des données et stockage dans une variable.
         $em = $this->getDoctrine()->getManager(); 
-        $aboutTexts = $em->getRepository(AboutText::class)->findAll();
+        $aboutTexts = $em->getRepository(AboutText::class)->sortByPosition();
         $languages = $em->getRepository(Languages::class)->findAll();
-        $hobbies = $em->getRepository(Hobbies::class)->findAll();
+        $hobbies = $em->getRepository(Hobbies::class)->sortByName();
 
         # Calcule de l'âge automatiquement et stockage dans une variable.
         $datetime1 = new \DateTime('now');
@@ -67,7 +69,7 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/text/new", name="aboutText_new", methods={"GET","POST"})
+     * @Route("/text/new", name="text_new", methods={"GET","POST"})
      */
     public function textNew(Request $request): Response
     {
@@ -90,9 +92,9 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/text/{id}/edit", name="aboutText_edit", methods={"GET","POST"})
+     * @Route("/text/{id}/edit", name="text_edit", methods={"GET","POST"})
      */
-    public function textEdit(Request $request, AboutText $aboutText): Response
+    public function textEdit(Request $request, AboutText $aboutText)
     {
         $form = $this->createForm(AboutTextType::class, $aboutText);
         $form->handleRequest($request);
@@ -110,13 +112,13 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/text/{textId}", name="text_delete")
+     * @Route("/text/{id}", name="text_delete")
      */
-    public function textDelete($textId)
+    public function textDelete($id)
     {          
         # Ouverture de la database et récupération des données.
         $em = $this->getDoctrine()->getManager();
-        $task = $em->getRepository(AboutText::class)->find($textId);
+        $task = $em->getRepository(AboutText::class)->find($id);
 
         # Supression des données.
         $em->remove($task);

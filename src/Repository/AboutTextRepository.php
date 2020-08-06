@@ -22,19 +22,15 @@ class AboutTextRepository extends ServiceEntityRepository
     // /**
     //  * @return AboutText[] Returns an array of AboutText objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function sortByPosition()
     {
-        return $this->createQueryBuilder('a')
-            ->andWhere('a.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('a.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('text')
+            ->orderBy('text.textPosition', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?AboutText

@@ -22,19 +22,15 @@ class HobbiesRepository extends ServiceEntityRepository
     // /**
     //  * @return Hobbies[] Returns an array of Hobbies objects
     //  */
-    /*
-    public function findByExampleField($value)
+
+    public function sortByName()
     {
-        return $this->createQueryBuilder('h')
-            ->andWhere('h.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('h.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('hobbies')
+            ->orderBy('hobbies.name', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?Hobbies
