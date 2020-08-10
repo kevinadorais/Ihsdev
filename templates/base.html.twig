@@ -2,20 +2,26 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
         <header>
             <h1><span>A</span>dorais<span>K</span>évin<span>.best</span></h1>
-            <nav>
-                <a href="#">Mes Services</a>
-                <a href="{{ path('about_index') }}">Ma Présentation</a>
-                <a href="#">Mon Parcour</a>
-                <a href="#">Mes Compétences</a>
-            </nav>
+            <div class="navBarDiv">
+                <a id="menuButton" class="noMenuButton" href="#">Menu</a>
+                <nav id="navBar" class="noNavBar">
+                    <a href="#">Mes Services</a>
+                    <a href="{{ path('about_index') }}">Ma Présentation</a>
+                    <a href="#">Mon Parcour</a>
+                    <a href="#">Mes Compétences</a>
+                </nav>
+            </div>
         </header>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{asset('js/hamburgerMenu.js')}}"></script>
+        {% endblock %}
     </body>
 </html>

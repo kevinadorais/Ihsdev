@@ -15,7 +15,7 @@
     <div class="container">
         <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
         {% for text in aboutTexts %}
-            <p>{{text.text}} <a href="{{ path('text_edit', {'id': text.id}) }}">M</a> <a href="{{ path('text_delete', {'id': text.id}) }}">X</a></p>
+            <p>{{text.text}} {% if app.user %}<a href="{{ path('text_edit', {'id': text.id}) }}">M</a> <a href="{{ path('text_delete', {'id': text.id}) }}">X</a>{% endif %}</p>
         {% endfor %}
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
@@ -31,7 +31,7 @@
                     <li>Permis : {{ abouts.0.license }}</li>
                     <li>Localisation : {{ abouts.0.location }}</li>
                 </ul>
-                <a href="{{ path('about_edit', {'id': abouts.0.id}) }}">modifier</a>
+                {% if app.user %}<a href="{{ path('about_edit', {'id': abouts.0.id}) }}">modifier</a>{% endif %}
                 <h3>Reseaux Sociaux</h3>
                 <div class="socialNetwork">
                     <a href="{{ abouts.0.github }}"><i class="fab fa-github"></i></a>
@@ -47,7 +47,7 @@
             <div class="languageCard">
                 <img src="{{ asset(lang.imgLink) }}">
                 <p>{{ lang.level }}</p>
-                <a href="{{ path('lang_edit', {'id': lang.id}) }}">Modifier</a>
+                {% if app.user %}<a href="{{ path('lang_edit', {'id': lang.id}) }}">Modifier</a>{% endif  %}
             </div>
             {% endfor %}
         </div>
@@ -58,13 +58,15 @@
         <div class="hobbies">
             {% for hob in hobbies %}
             <div class="hobbieCard">
-                <p>{{ hob.name }} <a href="{{path('hobbie_delete',{'id':hob.id})}}">X</a></p>
+                <p>{{ hob.name }} {% if app.user %}<a href="{{path('hobbie_delete',{'id':hob.id})}}">X</a>{% endif %}</p>
             </div>
             {% endfor %}
         </div>
     </section>
 
+    {% if app.user %}
     <a href="{{ path('text_new') }}">Ajouter Texte</a> | 
-    <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a> | 
+    <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a> |
+    {% endif %} 
     <a href="{{ path('app_login') }}">Se Connecter</a>
 {% endblock %}

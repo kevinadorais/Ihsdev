@@ -49,7 +49,7 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="about_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="about_edit", methods={"GET","POST"})
      */
     public function aboutEdit(Request $request, About $about): Response
     {
@@ -92,7 +92,7 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/text/{id}/edit", name="text_edit", methods={"GET","POST"})
+     * @Route("/text/edit/{id}", name="text_edit", methods={"GET","POST"})
      */
     public function textEdit(Request $request, AboutText $aboutText)
     {
@@ -128,7 +128,7 @@ class AboutController extends AbstractController
     }
 
     /**
-     * @Route("/lang/{id}/edit", name="lang_edit", methods={"GET","POST"})
+     * @Route("/lang/edit/{id}", name="lang_edit", methods={"GET","POST"})
      */
     public function langEdit(Request $request, Languages $languages): Response
     {

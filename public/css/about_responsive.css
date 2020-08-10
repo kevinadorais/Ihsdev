@@ -7,3 +7,62 @@
         margin: 2rem;
     }
 }
+
+@media screen and (max-width: 850px){
+    .aboutContent, .languages, .hobbies{
+        width: 100%;
+    }
+    section{
+        margin: 2rem;
+    }
+}
+
+@media screen and (max-width: 675px){
+    .container p{
+        margin: 1rem;
+    }
+    header{
+        display: flex;
+        flex-direction: row;
+    }
+    nav{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        margin: 0.5rem;
+    }
+    nav a{
+        border-radius: 0px;
+    }
+    .noNavBar{
+        display: none;
+    }
+    #menuButton{
+        display: flex;
+        justify-content: end;
+        margin-right: 2rem;
+        margin-top: 2rem;
+    }
+}
+@media screen and (max-width: 530px){
+    .aboutContent img{
+        display: block;
+        float: none;
+        margin: auto;
+    }
+    .aboutContentInfos ul{
+        padding-left: 0rem;
+    }
+    .languages{
+        flex-wrap: wrap;
+    }
+    .languagesCard{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 400px){
+    .hobbies{
+        flex-direction: column;
+    }
+}

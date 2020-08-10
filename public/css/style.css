@@ -32,6 +32,9 @@ nav a:hover{
     color: rgb(0, 105, 240);
     border: 0.5px solid rgb(0, 105, 240);
 }
+.noMenuButton{
+    display: none;
+}
 section{
     margin-left: 5rem;
     margin-right: 5rem;
