@@ -8,20 +8,35 @@
     </head>
     <body>
         <header>
-            <h1><span>A</span>dorais<span>K</span>évin<span>.best</span></h1>
+            <h1><span>A</span>dorais<span>K</span>évin<span>.</span>best</h1>
             <div class="navBarDiv">
                 <a id="menuButton" class="noMenuButton" href="#">Menu</a>
                 <nav id="navBar" class="noNavBar">
                     <a href="#">Mes Services</a>
                     <a href="{{ path('about_index') }}">Ma Présentation</a>
-                    <a href="#">Mon Parcour</a>
+                    <a href="{{ path('projourney_index') }}">Mon Parcour</a>
                     <a href="#">Mes Compétences</a>
                 </nav>
             </div>
         </header>
+        {% if app.user %}Vous êtes connecté en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">Se Déconnecter</a>{% endif %}
+
         {% block body %}{% endblock %}
+
+        <footer>
+            {% if app.user %}
+                <a href="{{ path('text_new') }}">Ajouter Texte</a>
+                <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a>
+            {% endif %} 
+            <a href="{{ path('app_login') }}">Se Connecter</a> 
+            {% if app.user %}
+                <a href="{{ path('app_logout') }}">Se Déconnecter</a>
+            {% endif %}
+        </footer>
+
         {% block javascripts %}
             <script type="text/javascript" src="{{asset('js/hamburgerMenu.js')}}"></script>
         {% endblock %}
+
     </body>
 </html>

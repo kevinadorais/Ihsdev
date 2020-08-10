@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProJourneyController!{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/about.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/about_responsive.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
+        <p>Sur cette page voici mon parcour professionel</p>
+        <p>1. Mes Formations</p>
+        <p>2. Mon Expérience Professionel</p>
+        <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
+    </div>
+    <div class="example-wrapper">
+        <h1>Hello {{ controller_name }}! ✅</h1>
+
+        This friendly message is coming from:
+        <ul>
+            <li>Your controller at <code><a href="{{ 'C:/Users/IHS/Desktop/SERVEUR/MesProjets/AdoraiskevinV4/src/Controller/ProJourneyController.php'|file_link(0) }}">src/Controller/ProJourneyController.php</a></code></li>
+            <li>Your template at <code><a href="{{ 'C:/Users/IHS/Desktop/SERVEUR/MesProjets/AdoraiskevinV4/templates/projourney/index.html.twig'|file_link(0) }}">templates/pro_journey/index.html.twig</a></code></li>
+        </ul>
+    </div>
+{% endblock %}

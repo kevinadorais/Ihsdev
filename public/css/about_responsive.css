@@ -55,9 +55,11 @@
         padding-left: 0rem;
     }
     .languages{
+        display: flex;
+        justify-content: space-around;
         flex-wrap: wrap;
     }
-    .languagesCard{
+    .languageCard{
         width: 50%;
     }
 }
@@ -65,4 +67,23 @@
     .hobbies{
         flex-direction: column;
     }
+}
+@media screen and (max-width: 375px){
+    #menuButton{
+        margin-top: 4rem;
+        position: absolute;
+        right: 0;
+    }
+    nav{
+        top: 6rem;
+        right: 0;
+        margin: 0.5rem;
+    }
+    footer{
+        flex-wrap: wrap;
+    }
+    footer a{
+        width: 48%;
+    }
+    
 }

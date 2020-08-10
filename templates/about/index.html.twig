@@ -63,10 +63,4 @@
             {% endfor %}
         </div>
     </section>
-
-    {% if app.user %}
-    <a href="{{ path('text_new') }}">Ajouter Texte</a> | 
-    <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a> |
-    {% endif %} 
-    <a href="{{ path('app_login') }}">Se Connecter</a>
 {% endblock %}
