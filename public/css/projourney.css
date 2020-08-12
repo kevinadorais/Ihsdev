@@ -1,0 +1,44 @@
+section a:hover{
+    color: rgb(255, 103, 1);
+}
+section i{
+    font-size: 2rem;
+}
+.qualifCard{
+    width: 80%;
+    margin: auto;
+    margin-top: 1rem;
+    box-shadow: 6px 6px 15px #636363;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.qualifDate{
+    color: rgb(0, 105, 240);
+    font-weight: bold;
+}
+.qualifContent{
+    color: rgb(90, 90, 90);
+    text-align: center;
+    float: center;
+}
+.qualifTitle{
+    color: black;
+    font-weight: bold;
+}
+.qualifEdit{
+    text-align: right;
+}
+.job{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.jobCard{
+    width: 80%;
+    margin: auto;
+    box-shadow: 6px 6px 15px #636363;
+    border-radius: 5px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}

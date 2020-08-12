@@ -40,3 +40,5 @@ security:
         - { path: about/text, roles: ROLE_USER }
         - { path: about/lang, roles: ROLE_USER }
         - { path: about/hobbie, roles: ROLE_USER }
+        - { path: projourney/qualif, roles: ROLE_USER }
+        - { path: projourney/job, roles: ROLE_USER }

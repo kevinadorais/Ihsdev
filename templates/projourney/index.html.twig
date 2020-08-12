@@ -1,13 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProJourneyController!{% endblock %}
+{% block title %}Adoraiskevin.best Dev Php Symfony Parcours Professionnel : formations et éxpèriences{% endblock %}
 
 {% block stylesheets %}
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/about.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{asset('css/about_responsive.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/projourney.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/projourney_responsive.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -18,13 +18,47 @@
         <p>2. Mon Expérience Professionel</p>
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
-    <div class="example-wrapper">
-        <h1>Hello {{ controller_name }}! ✅</h1>
+    <section>
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ 'C:/Users/IHS/Desktop/SERVEUR/MesProjets/AdoraiskevinV4/src/Controller/ProJourneyController.php'|file_link(0) }}">src/Controller/ProJourneyController.php</a></code></li>
-            <li>Your template at <code><a href="{{ 'C:/Users/IHS/Desktop/SERVEUR/MesProjets/AdoraiskevinV4/templates/projourney/index.html.twig'|file_link(0) }}">templates/pro_journey/index.html.twig</a></code></li>
-        </ul>
-    </div>
+        <!-- MES DIPLOME -->
+
+        <h2>Mes Diplôme</h2>
+        {% for qualif in qualifications %}
+            <div class="qualifCard">
+                <p class="qualifDate">{{ qualif.date }}</p> 
+                <div class="qualifContent">
+                    {% if qualif.link %}<a href="{{asset(qualif.link)}}"><i class="far fa-file-pdf"></i></a>{% endif %}
+                    <p class="qualifTitle">{% if app.user %}{{ qualif.position }} . {% endif %}{{ qualif.name }}</p>
+                    <p>{{ qualif.school }}</p>
+                    <p>{{ qualif.description }}</p>
+                </div>
+                {% if app.user %}
+                    <div class="qualifEdit">
+                        <a href=" {{ path('qualif_edit', { 'id' : qualif.id }) }} ">M</a> 
+                        <a href=" {{ path('qualif_delete', { 'id' : qualif.id }) }} ">X</a>
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+
+        <!-- MES EMPLOIS -->
+
+        <h2>Mes Emplois</h2>
+            {% for job in jobs %}
+            <div class="jobCard">
+                <p class="qualifDate">{{ job.date }}</p> 
+                <div class="qualifContent">
+                    <p class="qualifTitle">{% if app.user %}{{ job.position }} . {% endif %}{{ job.name }} ({{ job.society }})</p>
+                    <p>{{ job.description }}</p>
+                </div>
+                {% if app.user %}
+                    <div class="qualifEdit">
+                        <a href=" {{ path('job_edit', { 'id' : job.id }) }} ">M</a> 
+                        <a href=" {{ path('job_delete', { 'id' : job.id }) }} ">X</a>
+                    </div>
+                {% endif %}
+            </div>
+            {% endfor %}  
+    </section>
+    
 {% endblock %}
