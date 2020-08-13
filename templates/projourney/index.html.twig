@@ -18,10 +18,10 @@
         <p>2. Mon Expérience Professionel</p>
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
-    <section>
-
+    
         <!-- MES DIPLOME -->
 
+    <section>
         <h2>Mes Diplôme</h2>
         {% for qualif in qualifications %}
             <div class="qualifCard">
@@ -40,11 +40,14 @@
                 {% endif %}
             </div>
         {% endfor %}
+    </section>
 
         <!-- MES EMPLOIS -->
-
+    
+    <hr>
+    <section>
         <h2>Mes Emplois</h2>
-            {% for job in jobs %}
+        {% for job in jobs %}
             <div class="jobCard">
                 <p class="qualifDate">{{ job.date }}</p> 
                 <div class="qualifContent">
@@ -58,7 +61,6 @@
                     </div>
                 {% endif %}
             </div>
-            {% endfor %}  
-    </section>
-    
+        {% endfor %}
+    </section>  
 {% endblock %}

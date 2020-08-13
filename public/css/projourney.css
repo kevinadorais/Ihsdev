@@ -12,6 +12,7 @@ section i{
     border-radius: 5px;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
 }
 .qualifDate{
     color: rgb(0, 105, 240);
@@ -41,4 +42,6 @@ section i{
     border-radius: 5px;
     padding-left: 1rem;
     padding-right: 1rem;
+    padding-bottom: 1rem;
+    background-color: whitesmoke;
 }

@@ -86,6 +86,11 @@ section h2, h3{
     margin-top: 3rem;
     box-shadow: 6px 6px 15px #636363;
 }
+hr{
+    color: rgb(0, 105, 240);
+    margin-top: 3rem;
+    width: 80%;
+}
 footer{
     display: flex;
     justify-content: space-around;
