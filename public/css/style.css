@@ -40,12 +40,14 @@ section{
     margin-left: 5rem;
     margin-right: 5rem;
 }
+h2{
+    font-size: 1.5rem;
+    color: rgb(0, 105, 240);
+}
 section h2, h3{
     text-align: center;
     margin: 2rem;
-    color: rgb(0, 105, 240);
     text-shadow: 1px 1px 1px #636363;
-    font-size: 1.5rem;
 }
 .container{
     background-image: url("../img/headerBackground.jpg");
