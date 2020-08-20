@@ -15,14 +15,14 @@
         <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
         <p>Sur cette page voici mon parcour professionel</p>
         <p>1. Mes Formations</p>
-        <p>2. Mon Expérience Professionel</p>
+        <p>2. Mes Emplois</p>
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
     
         <!-- MES DIPLOME -->
 
     <section>
-        <h2>Mes Diplôme</h2>
+        <h2>1. Mes Formations</h2>
         {% for qualif in qualifications %}
             <div class="qualifCard">
                 <p class="qualifDate">{{ qualif.date }}</p> 
@@ -46,7 +46,7 @@
     
     <hr>
     <section>
-        <h2>Mes Emplois</h2>
+        <h2>2. Mes Emplois</h2>
         {% for job in jobs %}
             <div class="jobCard">
                 <p class="qualifDate">{{ job.date }}</p> 

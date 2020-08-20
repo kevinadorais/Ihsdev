@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adoraiskevin.best Dev Php Symfony Accueil : Mes Services{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/services.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/services_responsive.css')}}">
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
+        <p>Sur cette page voici mon parcour professionel</p>
+        <p>1. Créations de Sites sur Mesures</p>
+        <p>2. Demande de Devis</p>
+        <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
+    </div>
+
+    <section>
+        {% for message in app.flashes('success') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+        {% endfor %}
+        <div class="servicesBox">
+            <h2>1. Créations de Sites sur Mesures</h2>
+            <p>
+                Je suis Kévin ADORAIS, <strong>Développeur Web FullStack</strong>, spécialisé en PHP SYMPHONY JS
+                Je suis en mesure de <strong>créer votre site sur mesure</strong> …
+                Créativité et imagination à votre service …
+                Et professionnalisme …
+                Doté d’une excellente maîtrise du <strong>HTML</strong> et du <strong>CSS</strong>, je peux adapter votre site à votre image.
+                Je maîtrise parfaitement le  <strong>JS</strong>, pour des fonctionnalités, animations …
+                Et le <strong>PHP</strong>, pour des fonctionnalités, la gestion de base de données, les formulaires …
+                Quant aux sites e-commerce : En option, possibilité de passer par un CMS, tel que <strong>SHOPIFY</strong> ou <strong>PRESTASHOP</strong>, permettant de gagner en vitesse et en prix.
+                Grâce à ma Maîtrise de <strong>SYMFONY</strong> (framework N°1 dans le monde !!!) vous gagnerez en temps et en sécurité ! <a id="readMoreButton" href="#">lire la suite</a>
+                <div id="servicesText" class="noDisplay">
+                    Ma connaissance de <strong>DOCTRINE</strong> et <strong>MySQL</strong> me permettra de vous offrir la possibilité d’interagir et de gérer votre base de données, par vous-même : la lecture, l'ajout, la suppression et l’édition de vos données.
+                    Le <strong>Responsive</strong> adaptera la présentation de votre site sur l’appareil utilisé (ordinateur, tablette, mobile).
+                    Grâce à la création, éventuelle, d’une <strong>PWA (Progressive Web App)</strong>, votre site fonctionnera sur tout périphérique en intégrant les fonctionnalités disponibles du navigateur ou de l'appareil utilisé.  Elle répondra aux problématiques de sécurité des échanges entre les utilisateurs et les sites, incluant la possibilité d’y ajouter une connexion hors ligne, des notifications ou géolocalisations.
+                    Mes connaissances en <strong>SEO (référencement)</strong> vous permettront d’accéder à un meilleur référencement sur Google et Yahoo.
+                    Pour un site simple vitrine ou autre, rapide et efficace : baisse de la taille de l’image sans perdre la qualité, acteur majeur pour gagner en vitesse et autres techniques…
+                    Je suis, aussi, en mesure d’utiliser les <strong>API ou Interfaces externes</strong>.
+                </div>
+            </p>
+        </div>
+        <h2>2. Demande de Devis</h2>
+        <div class="websiteQuoteBox">
+            <div>
+                <p>Pour rendre le travail plus efficace ! préparer un cahier des charges.</p>
+                <ul>
+                    <li>Choisir 2 ou 3 couleurs sur <a href=" https://htmlcolorcodes.com/fr/selecteur-de-couleur/">htmlcolorcodes</a>. Prière de noter les codes couleur (ex : #2E098F)</li>
+                    <li>Choisir 1 ou 2 polices d’écriture : vous pouvez en trouver sur <a href="https://fonts.google.com/">Google Fonts</a>.</li>
+                    <li>Préparer un croquis du visuel de votre futur site, ainsi il sera adapté à vos souhaits…</li>
+                    <li>Noter les pages disponibles dans la navigation et leurs détails.</li>
+                    <li>Rassembler les textes et les images apparentes sur votre site.</li>
+                    <li>Annexer le LOGO si vous en avez un, obligatoire si vous souhaitez une PWA.</li>
+                    <li>Signaler toutes les fonctionnalités nécessaires sur votre site …</li>
+                </ul>
+            </div>
+            <div class="websiteQuote">
+                <a href="#"><i class="fas fa-envelope-open-text"></i></a>
+                <cite>Cliquez ici pour un devis</cite>
+            </div>
+            
+        </div>
+        
+    </section>
+{% endblock %}

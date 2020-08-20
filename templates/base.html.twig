@@ -12,7 +12,7 @@
             <div class="navBarDiv">
                 <a id="menuButton" class="noMenuButton" href="#">Menu</a>
                 <nav id="navBar" class="noNavBar">
-                    <a href="#">Mes Services</a>
+                    <a href="{{ path('services_index') }}">Mes Services</a>
                     <a href="{{ path('about_index') }}">Ma Présentation</a>
                     <a href="{{ path('projourney_index') }}">Mon Parcour</a>
                     <a href="#">Mes Compétences</a>
@@ -38,6 +38,7 @@
 
         {% block javascripts %}
             <script type="text/javascript" src="{{asset('js/hamburgerMenu.js')}}"></script>
+            <script type="text/javascript" src="{{asset('js/readMore.js')}}"></script>
         {% endblock %}
 
     </body>
