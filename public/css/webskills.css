@@ -1,0 +1,19 @@
+h2{
+    text-align: center;
+}
+.mainBox{
+    display: flex;
+    justify-content: space-around;
+    width: 95%;
+    margin: 2rem;
+}
+.projectsBox{
+    width: 65%;
+}
+.technosBox{
+    width: 35%;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: rgb(15, 15, 15);
+    color: white;
+}

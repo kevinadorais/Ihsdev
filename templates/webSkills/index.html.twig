@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adoraiskevin.best Dev Php Symfony Mes Compétences : technos, compétences et projets réalisés{% endblock %}
+
+{% block stylesheets %}
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/webskills.css')}}">
+{% endblock %}
+
+{% block body %}
+
+        <!-- CONTAINER -->
+    <div class="container">
+        <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
+        <p>Sur cette page voici mes compétences web</p>
+        <p>1. Mes Technos</p>
+        <p>2. Mes Compétences Web</p>
+        <p>3. Mes Projets Réalisés</p>
+        <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
+    </div>
+
+    <div class="mainBox">
+
+            <!--PROJECTS-->
+        <div class="projectsBox">
+            <h2>Mes Projets</h2>
+            {% for projects in projects %}
+                {{ projects.name }}
+            {% endfor %}
+        </div>
+
+            <!--TECHNOS & SKILLS-->
+        <div class="technosBox">
+            <h2>Mes Technos</h2>
+            {% for technos in technos %}
+                {{ technos.name }}
+            {% endfor %}
+
+            <h2>Mes Compétences</h2>
+            {% for skills in devSkills %}
+                {{ skills.name }}
+            {% endfor %}
+        </div>
+
+    </div>
+        
+{% endblock %}

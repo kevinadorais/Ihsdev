@@ -7,6 +7,8 @@
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
+
+            <!--HEADER-->
         <header>
             <h1><span>A</span>dorais<span>K</span>évin<span>.</span>best</h1>
             <div class="navBarDiv">
@@ -15,7 +17,7 @@
                     <a href="{{ path('services_index') }}">Mes Services</a>
                     <a href="{{ path('about_index') }}">Ma Présentation</a>
                     <a href="{{ path('projourney_index') }}">Mon Parcour</a>
-                    <a href="#">Mes Compétences</a>
+                    <a href="{{ path('webskills_index') }}">Mes Compétences</a>
                 </nav>
             </div>
         </header>
@@ -23,12 +25,16 @@
 
         {% block body %}{% endblock %}
 
+            <!--FOOTER-->
         <footer>
             {% if app.user %}
                 <a href="{{ path('text_new') }}">Ajouter Texte</a>
                 <a href="{{ path('hobbie_new') }}">Ajouter Loisir</a>
                 <a href="{{ path('qualif_new') }}">Ajouter Diplôme</a>
                 <a href="{{ path('job_new') }}">Ajouter Emploi</a>
+                <a href="{{ path('techno_new') }}">Ajouter Techno</a>
+                <a href="{{ path('devskill_new') }}">Ajouter Compétence</a>
+                <a href="{{ path('project_new') }}">Ajouter Projet</a>
             {% endif %} 
             <a href="{{ path('app_login') }}">Se Connecter</a> 
             {% if app.user %}
@@ -36,6 +42,7 @@
             {% endif %}
         </footer>
 
+            <!--JAVASCRIPT-->
         {% block javascripts %}
             <script type="text/javascript" src="{{asset('js/hamburgerMenu.js')}}"></script>
             <script type="text/javascript" src="{{asset('js/readMore.js')}}"></script>

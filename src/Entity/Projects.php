@@ -35,7 +35,7 @@ class Projects
     private $website;
 
     /**
-     * @ORM\OneToMany(targetEntity=ProjectImgs::class, mappedBy="projects", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity=ProjectImgs::class, mappedBy="projects", orphanRemoval=true, cascade={"persist"})
      */
     private $projectImgs;
 
@@ -44,9 +44,15 @@ class Projects
      */
     private $technos;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=DevSkills::class)
+     */
+    private $devSkills;
+
     public function __construct()
     {
         $this->projectImgs = new ArrayCollection();
+        $this->devSkills = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -129,6 +135,32 @@ class Projects
     public function setTechnos(?Technos $technos): self
     {
         $this->technos = $technos;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|DevSkills[]
+     */
+    public function getDevSkills(): Collection
+    {
+        return $this->devSkills;
+    }
+
+    public function addDevSkill(DevSkills $devSkill): self
+    {
+        if (!$this->devSkills->contains($devSkill)) {
+            $this->devSkills[] = $devSkill;
+        }
+
+        return $this;
+    }
+
+    public function removeDevSkill(DevSkills $devSkill): self
+    {
+        if ($this->devSkills->contains($devSkill)) {
+            $this->devSkills->removeElement($devSkill);
+        }
 
         return $this;
     }
