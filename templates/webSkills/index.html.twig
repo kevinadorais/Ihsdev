@@ -15,33 +15,42 @@
     <div class="container">
         <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
         <p>Sur cette page voici mes compétences web</p>
-        <p>1. Mes Technos</p>
-        <p>2. Mes Compétences Web</p>
-        <p>3. Mes Projets Réalisés</p>
+        <p>1. Mes Projets Réalisés</p>
+        <p>2. Mes Technos</p>
+        <p>3. Mes Compétences Web</p>
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
 
     <div class="mainBox">
 
-            <!--PROJECTS-->
+        <!--PROJECTS-->
         <div class="projectsBox">
             <h2>Mes Projets</h2>
-            {% for projects in projects %}
-                {{ projects.name }}
-            {% endfor %}
         </div>
+            
+        <div class="technosSkills">
 
-            <!--TECHNOS & SKILLS-->
-        <div class="technosBox">
+            <!--TECHNOS-->
             <h2>Mes Technos</h2>
-            {% for technos in technos %}
-                {{ technos.name }}
-            {% endfor %}
+            <div class="technos">
+                {% for tech in technos %}
+                    <div class="technoCard">
+                        <img class="technoLogo" src="{{ asset('img/logos/' ~ tech.logo) }}" alt="{{ tech.alt }}">
+                        {% if app.user %}<a href="{{path('techno_delete',{'id':tech.id})}}">X</a>{% endif %}
+                    </div>
+                {% endfor %}
+            </div>
 
+            <!--SKILLS-->
             <h2>Mes Compétences</h2>
-            {% for skills in devSkills %}
-                {{ skills.name }}
-            {% endfor %}
+            <div class="skills">
+                {% for skill in devSkills %}
+                    <div class="skillCard">
+                        <p>{% if app.user %}<a href="{{path('skill_delete',{'id':skill.id})}}">X</a>{% endif %} {{ skill.name }}</p>    
+                    </div>
+                {% endfor %}
+            </div> 
+
         </div>
 
     </div>

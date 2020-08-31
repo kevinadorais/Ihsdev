@@ -92,8 +92,22 @@ section h2, h3{
     margin-top: 3rem;
     box-shadow: 6px 6px 15px #636363;
 }
+.formImgs{
+    display: flex;
+    justify-content: center;
+}
+.formImgCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px;
+}
+.formImgCard img{
+    width: 200px;
+    height: 150px;
+}
 hr{
-    color: rgb(0, 105, 240);
+    color: rgb(0, 0, 0);
     margin-top: 3rem;
     width: 80%;
 }

@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Qualification;
 use App\Entity\Job;
-use App\Repository\QualificationRepository;
-use App\Repository\JobRepository;
 use App\Form\QualificationType;
 use App\Form\JobType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

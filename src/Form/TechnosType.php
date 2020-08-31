@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Technos;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class TechnosType extends AbstractType
@@ -13,7 +14,11 @@ class TechnosType extends AbstractType
     {
         $builder
             ->add('name')
-            ->add('logo')
+            // On ajoute le champ logo non mapped, à traîter dans le controller
+            ->add('logo', FileType::class, [
+                'multiple' => true,
+                'mapped' => false,
+                'required' => false,])
             ->add('alt')
         ;
     }

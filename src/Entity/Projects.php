@@ -25,12 +25,12 @@ class Projects
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $website;
 
@@ -40,7 +40,7 @@ class Projects
     private $projectImgs;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Technos::class)
+     * @ORM\ManyToMany(targetEntity=Technos::class)
      */
     private $technos;
 
@@ -52,6 +52,7 @@ class Projects
     public function __construct()
     {
         $this->projectImgs = new ArrayCollection();
+        $this->technos = new ArrayCollection();
         $this->devSkills = new ArrayCollection();
     }
 
@@ -77,7 +78,7 @@ class Projects
         return $this->description;
     }
 
-    public function setDescription(string $description): self
+    public function setDescription(?string $description): self
     {
         $this->description = $description;
 
@@ -89,7 +90,7 @@ class Projects
         return $this->website;
     }
 
-    public function setWebsite(string $website): self
+    public function setWebsite(?string $website): self
     {
         $this->website = $website;
 
@@ -127,14 +128,28 @@ class Projects
         return $this;
     }
 
-    public function getTechnos(): ?Technos
+    /**
+     * @return Collection|Technos[]
+     */
+    public function getTechnos(): Collection
     {
         return $this->technos;
     }
 
-    public function setTechnos(?Technos $technos): self
+    public function addTechno(Technos $techno): self
     {
-        $this->technos = $technos;
+        if (!$this->technos->contains($techno)) {
+            $this->technos[] = $techno;
+        }
+
+        return $this;
+    }
+
+    public function removeTechno(Technos $techno): self
+    {
+        if ($this->technos->contains($techno)) {
+            $this->technos->removeElement($techno);
+        }
 
         return $this;
     }

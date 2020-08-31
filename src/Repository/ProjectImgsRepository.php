@@ -22,19 +22,17 @@ class ProjectImgsRepository extends ServiceEntityRepository
     // /**
     //  * @return ProjectImgs[] Returns an array of ProjectImgs objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function findByProject($projectId)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('img')
+            ->andWhere('img.projects = :val')
+            ->setParameter('val', $projectId)
+            ->orderBy('img.id', 'ASC')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
 
     /*
     public function findOneBySomeField($value): ?ProjectImgs
