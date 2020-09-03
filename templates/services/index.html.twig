@@ -3,6 +3,8 @@
 {% block title %}Adoraiskevin.best Dev Php Symfony Accueil : Mes Services{% endblock %}
 
 {% block stylesheets %}
+    <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">
+    <link rel="manifest" href="{{asset('manifest.json')}}">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
@@ -21,9 +23,9 @@
 
     <section>
         {% for message in app.flashes('success') %}
-        <div class="alert alert-success">
-            {{ message }}
-        </div>
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
         {% endfor %}
         <div class="servicesBox">
             <h2>1. Créations de Sites sur Mesures</h2>

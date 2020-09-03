@@ -9,7 +9,6 @@ use App\Entity\ProjectImgs;
 use App\Form\TechnosType;
 use App\Form\DevSkillsType;
 use App\Form\ProjectsType;
-use App\Repository\ProjectImgsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -30,7 +29,7 @@ class WebSkillsController extends AbstractController
         $em = $this->getDoctrine()->getManager(); 
         $technos = $em->getRepository(Technos::class)->findAll();
         $devSkills = $em->getRepository(DevSkills::class)->findAll();
-        $projects = $em->getRepository(Projects::class)->findAll();
+        $projects = $em->getRepository(Projects::class)->findByRecent();
 
         return $this->render('webSkills/index.html.twig', [
             'technos' => $technos,
@@ -212,7 +211,7 @@ class WebSkillsController extends AbstractController
 
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('projects_index');
+            return $this->redirectToRoute('webskills_index');
         }
 
         return $this->render('projects/edit.html.twig', [
@@ -222,7 +221,7 @@ class WebSkillsController extends AbstractController
     }
 
     /**
-     * @Route("Project/img/delete/{id}", name="projectimg_delete")
+     * @Route("/project/img/delete/{id}", name="projectimg_delete", methods={"DELETE"})
      */
     public function projectImgDelete(ProjectImgs $projectImgs, Request $request){
         $data = json_decode($request->getContent(), true);
@@ -234,12 +233,10 @@ class WebSkillsController extends AbstractController
             $imgName = $projectImgs->getName();
 
             // On efface le fichier img
-            unlink($this->getParameter('projectsImgs_directory'). '/' . $imgName);
-
-            // Ouverture de la database
-            $em = $this->getDoctrine()->getManager();
+            unlink($this->getParameter('projectsimgs_directory'). '/' . $imgName);
 
             // Supression des données.
+            $em = $this->getDoctrine()->getManager();
             $em->remove($projectImgs);
             $em->flush();
 

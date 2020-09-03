@@ -1,0 +1,16 @@
+{
+    "name" : "Adorais Kévin",
+    "short_name" : "AKDev",
+    "lang" : "fr",
+    "start_url" : "/",
+    "display" : "standalone",
+    "theme_color" : "rgb(0, 105, 240)",
+    "background_color" : "rgb(0, 105, 240)",
+    "icons" : [
+        {
+            "src" : "logo.png",
+            "sizes" : "512x512",
+            "type" : "image/png"
+        }
+    ]
+}

@@ -3,10 +3,13 @@
 {% block title %}Adoraiskevin.best Dev Php Symfony Mes Compétences : technos, compétences et projets réalisés{% endblock %}
 
 {% block stylesheets %}
+    <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">
+    <link rel="manifest" href="{{asset('manifest.json')}}">
     <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@1,300&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/webskills.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/webskills_responsive.css')}}">
 {% endblock %}
 
 {% block body %}
@@ -15,9 +18,9 @@
     <div class="container">
         <h2><span>Dev</span> FullStack PHP Symfony JS</h2>
         <p>Sur cette page voici mes compétences web</p>
-        <p>1. Mes Projets Réalisés</p>
-        <p>2. Mes Technos</p>
-        <p>3. Mes Compétences Web</p>
+        <p>1. Mes Technos</p>
+        <p>2. Mes Compétences Web</p>
+        <p>3. Mes Projets Réalisés</p>
         <a class="button" href="{{asset('file/CV_Kevin.pdf')}}" download="CV_Kevin.pdf">Télécharger mon CV</a>
     </div>
 
@@ -25,13 +28,28 @@
 
         <!--PROJECTS-->
         <div class="projectsBox">
-            <h2>Mes Projets</h2>
+            <h2>3. Mes Projets</h2>
+            {% for proj in projects %}
+                <h3>{{ proj.name }} <a href="{{ proj.website }}">({{ proj.website }})</a>{% if app.user %} <a href="{{ path('project_edit',{'id' : proj.id}) }}">Modifier</a> / <a href="{{ path('project_delete',{'id' : proj.id}) }}">X</a>{% endif %}</h3>
+                <p>{{ proj.description }}</p>
+                <div class="project_technos">
+                    {% for tech in proj.technos %}
+                        <img class="technoLogo" src="{{ asset('img/logos/' ~ tech.logo) }}" alt="{{ tech.alt }}">
+                    {% endfor %}    
+                </div>
+                <h4></h4>
+                    <p>techniques : 
+                        {% for skill in proj.devSkills %}
+                            {{ skill.name }} .
+                        {% endfor %}
+                    </p>
+            {% endfor %}
         </div>
             
         <div class="technosSkills">
 
             <!--TECHNOS-->
-            <h2>Mes Technos</h2>
+            <h2>1. Mes Technos</h2>
             <div class="technos">
                 {% for tech in technos %}
                     <div class="technoCard">
@@ -42,7 +60,7 @@
             </div>
 
             <!--SKILLS-->
-            <h2>Mes Compétences</h2>
+            <h2>2. Mes Compétences</h2>
             <div class="skills">
                 {% for skill in devSkills %}
                     <div class="skillCard">
