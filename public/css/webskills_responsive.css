@@ -14,6 +14,11 @@
     .skillCard{
         width: 90%;
     }
+    .project_technos{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 915px){

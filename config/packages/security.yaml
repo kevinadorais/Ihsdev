@@ -45,3 +45,4 @@ security:
         - { path: webskills/techno, roles: ROLE_USER }
         - { path: webskills/skill, roles: ROLE_USER }
         - { path: webskills/project, roles: ROLE_USER }
+        - { path: register, roles: ROLE_USER }

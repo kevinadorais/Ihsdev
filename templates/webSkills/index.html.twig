@@ -30,7 +30,7 @@
         <div class="projectsBox">
             <h2>3. Mes Projets</h2>
             {% for proj in projects %}
-                <h3>{{ proj.name }} <a href="{{ proj.website }}">({{ proj.website }})</a>{% if app.user %} <a href="{{ path('project_edit',{'id' : proj.id}) }}">Modifier</a> / <a href="{{ path('project_delete',{'id' : proj.id}) }}">X</a>{% endif %}</h3>
+                <h3>{{ proj.name }} {% if proj.website != null %}<a href="{{ proj.website }}">({{ proj.website }})</a>{% endif %}{% if app.user %} <a href="{{ path('project_edit',{'id' : proj.id}) }}">Modifier</a> / <a href="{{ path('project_delete',{'id' : proj.id}) }}">X</a>{% endif %}</h3>
                 <p>{{ proj.description }}</p>
                 <div class="project_technos">
                     {% for tech in proj.technos %}
