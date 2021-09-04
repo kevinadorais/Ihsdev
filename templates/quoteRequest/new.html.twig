@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Demande de devis{% endblock %}
+{% block title %}{{app.request.server.get('DOMAIN') }} Demande de devis{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">

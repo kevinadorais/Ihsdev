@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Ajouter Compétence{% endblock %}
+{% block title %}{{app.request.server.get('DOMAIN') }} Ajouter Compétence{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">

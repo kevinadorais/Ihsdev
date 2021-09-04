@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Se Connecter{% endblock %}
+{% block title %}{{app.request.server.get('DOMAIN') }} Se Connecter{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">

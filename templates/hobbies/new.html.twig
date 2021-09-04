@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Ajouter Loisir{% endblock %}
+{% block title %}{{app.request.server.get('DOMAIN') }} Ajouter Loisir{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">

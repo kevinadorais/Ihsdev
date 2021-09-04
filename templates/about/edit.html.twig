@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}AdoraisKevin.best Modifier Infos{% endblock %}
+{% block title %}{{ app.request.server.get('DOMAIN') }} Modifier Infos{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">

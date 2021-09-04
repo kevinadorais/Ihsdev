@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Adoraiskevin.best Dev Php Symfony Présentationn Hobbies et Languages{% endblock %}
+{% block title %}{{ app.request.server.get('DOMAIN') }} Dev Php Symfony Présentationn Hobbies et Languages{% endblock %}
 
 {% block stylesheets %}
     <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">
